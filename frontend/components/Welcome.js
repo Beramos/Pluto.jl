@@ -273,10 +273,15 @@ export class Welcome extends Component {
         if (this.state.combined_notebooks == null) {
             recents = html`<li><em>Loading...</em></li>`
         } else {
-            console.log(this.state.combined_notebooks)
-            recents = this.state.combined_notebooks.map((nb) => {
+
+            const fixed_notebooks = [create_empty_notebook("/home/bram/Desktop/DS-Julia2925/notebooks/templates/example.jl", null),
+                create_empty_notebook("/home/bram/Desktop/DS-Julia2925/notebooks/templates/template.jl", null)]
+
+
+            recents = fixed_notebooks.map((nb) => {
                 const running = nb.notebook_id != null
-                return html`<li
+                return html`
+                <li
                     key=${nb.path}
                     class=${cl({
                         running: running,
@@ -292,7 +297,16 @@ export class Welcome extends Component {
             })
         }
 
-        return html`<p>New session:</p>
+        return html`
+              <h2>Notebooks:</h2>
+              <h3>Day 1:</h3>
+              <h3>Day 2:</h3>
+              <h3>Projects:</h3>
+              <h3>Templates:</h3>
+            <ul id="recent">
+                ${recents}
+            </ul>
+            <p>New session:</p>
             <ul id="new">
                 <li>Open a <a href="sample">sample notebook</a></li>
                 <li>Create a <a href="new">new notebook</a></li>
@@ -300,11 +314,6 @@ export class Welcome extends Component {
                     Open from file:
                     <${FilePicker} client=${this.client} value="" on_submit=${this.on_open_path} button_label="Open" placeholder="Enter path or URL..." />
                 </li>
-            </ul>
-            <br />
-            <p>Recent sessions:</p>
-            <ul id="recent">
-                ${recents}
             </ul>`
     }
 }
