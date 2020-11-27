@@ -274,8 +274,8 @@ export class Welcome extends Component {
             fixeds = html`<li><em>Loading...</em></li>`
         } else {
 
-            const fixed_notebooks = [create_empty_notebook("/home/bram/Desktop/DS-Julia2925/notebooks/templates/example.jl", null),
-                create_empty_notebook("/home/bram/Desktop/DS-Julia2925/notebooks/templates/template.jl", null)]
+            const fixed_notebooks = [create_empty_notebook("/home/jovyan/notebooks/templates/example.jl", null),
+                create_empty_notebook("/home/jovyan/notebooks/templates/template.jl", null)]
 
 
             fixeds = fixed_notebooks.map((nb) => {
