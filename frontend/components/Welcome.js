@@ -298,7 +298,7 @@ export class Welcome extends Component {
         }
 
         return html`
-              <h2>Notebooks:</h2>
+              <p>Notebooks:</p>
               <h3>Day 1:</h3>
               <h3>Day 2:</h3>
               <h3>Projects:</h3>
@@ -306,6 +306,7 @@ export class Welcome extends Component {
             <ul id="recent">
                 ${recents}
             </ul>
+            <br />
             <p>New session:</p>
             <ul id="new">
                 <li>Open a <a href="sample">sample notebook</a></li>
