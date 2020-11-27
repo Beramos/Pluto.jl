@@ -268,17 +268,17 @@ export class Welcome extends Component {
     }
 
     render() {
-        let recents = null
+        let fixeds = null
 
         if (this.state.combined_notebooks == null) {
-            recents = html`<li><em>Loading...</em></li>`
+            fixeds = html`<li><em>Loading...</em></li>`
         } else {
 
             const fixed_notebooks = [create_empty_notebook("/home/bram/Desktop/DS-Julia2925/notebooks/templates/example.jl", null),
                 create_empty_notebook("/home/bram/Desktop/DS-Julia2925/notebooks/templates/template.jl", null)]
 
 
-            recents = fixed_notebooks.map((nb) => {
+            fixeds = fixed_notebooks.map((nb) => {
                 const running = nb.notebook_id != null
                 return html`
                 <li
@@ -304,7 +304,7 @@ export class Welcome extends Component {
               <h3>Projects:</h3>
               <h3>Templates:</h3>
             <ul id="recent">
-                ${recents}
+                ${fixeds}
             </ul>
             <br />
             <p>New session:</p>
